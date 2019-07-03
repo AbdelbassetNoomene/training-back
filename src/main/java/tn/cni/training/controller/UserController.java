@@ -50,6 +50,8 @@ public class UserController {
 		Optional<User> user = userRepository.findById(id);
 		if(user.isPresent()) {
 			userRepository.delete(user.get());
+		}else {
+			throw new RuntimeException("User not found");
 		}
 		
 	}
